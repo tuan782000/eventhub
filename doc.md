@@ -124,3 +124,12 @@ Các Hàm
 
 Tới return
 
+
+Làm slide
+
+npm i react-native-swiper
+
+sử dụng
+
+import Swiper from 'react-native-swiper'
+

@@ -1,14 +1,15 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable prettier/prettier */
 // import {View, Text} from 'react-native';
+/* eslint-disable prettier/prettier */
 import React, {useEffect, useState} from 'react';
 import {SplashScreen} from './src/screens';
 // import MainNavigator from './src/navigator/MainNavigator';
-import AuthNavigator from './src/navigator/AuthNavigator';
+import AuthNavigator from './src/navigators/AuthNavigator';
 import {NavigationContainer} from '@react-navigation/native';
 import {StatusBar} from 'react-native';
 import {useAsyncStorage} from '@react-native-async-storage/async-storage';
-import MainNavigator from './src/navigator/MainNavigator';
+import MainNavigator from './src/navigators/MainNavigator';
 
 const App = () => {
   const [isShowSplash, setIsShowSplash] = useState(true);
