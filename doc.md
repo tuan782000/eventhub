@@ -110,5 +110,17 @@ export default App;
 
 Khởi chạy app thì mặc định true thì isShowSplash thế này sẽ hiển thị SplashScreen sau 1.5s thì chuyển hóa thành true, nó sẽ chạy đoạn NavigationContainer.
 
+Dùng async-storage
 
+npm i @react-native-async-storage/async-storage
+
+Thứ tự trình bày code:
+
+Các state
+
+Các useEffect
+
+Các Hàm
+
+Tới return
 
