@@ -65,3 +65,50 @@ giúp hỗ trợ export các auth, home,... Khi dùng chỉ cần import screens
 
 ẩn đi cái header mặc định
 ```
+
+```js
+/* eslint-disable prettier/prettier */
+// import {View, Text} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {SplashScreen} from './src/screens';
+// import MainNavigator from './src/navigator/MainNavigator';
+import AuthNavigator from './src/navigator/AuthNavigator';
+import {NavigationContainer} from '@react-navigation/native';
+import {StatusBar} from 'react-native';
+
+const App = () => {
+  const [isShowSplash, setIsShowSplash] = useState(true);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setIsShowSplash(false);
+    }, 1500);
+    return () => clearTimeout(timeout);
+  }, []);
+
+  return (
+    <>
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor="transparent"
+        translucent
+      />
+      {isShowSplash ? (
+        <SplashScreen />
+      ) : (
+        <NavigationContainer>
+          <AuthNavigator />
+        </NavigationContainer>
+      )}
+    </>
+  );
+};
+
+export default App;
+
+```
+
+Khởi chạy app thì mặc định true thì isShowSplash thế này sẽ hiển thị SplashScreen sau 1.5s thì chuyển hóa thành true, nó sẽ chạy đoạn NavigationContainer.
+
+
+
