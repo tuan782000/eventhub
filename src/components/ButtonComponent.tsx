@@ -7,6 +7,7 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import TextComponent from './TextComponent';
 import {globalStyles} from '../styles/globalStyles';
 import {appColors} from '../constants/appColors';
+import {fontFamilies} from '../constants/fontFamilies';
 // import {fontFamilies} from '../constants/fontFamilies';
 
 interface Props {
@@ -47,9 +48,10 @@ const ButtonComponent = (props: Props) => {
         color={textColor ?? appColors.white}
         styles={[
           textStyles,
-          {marginLeft: icon && iconFlex === 'left' ? 12 : 0},
+          {marginLeft: icon && iconFlex === 'left' ? 12 : 0, fontSize: 16},
         ]}
         flex={icon && iconFlex === 'right' ? 1 : 0}
+        font={fontFamilies.medium}
       />
       {icon && iconFlex === 'right' && icon}
     </TouchableOpacity>

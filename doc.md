@@ -133,3 +133,6 @@ sử dụng
 
 import Swiper from 'react-native-swiper'
 
+
+SafeAreaView: chống bọn tai thỏ
+
