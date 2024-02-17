@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable react-native/no-inline-styles */
-import {StyleProp, ViewStyle, TextStyle} from 'react-native';
+import {StyleProp, ViewStyle, TextStyle, View} from 'react-native';
 import React, {ReactNode} from 'react';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import TextComponent from './TextComponent';
@@ -20,6 +20,7 @@ interface Props {
   textStyles?: StyleProp<TextStyle>;
   onPress?: () => void;
   iconFlex?: 'right' | 'left';
+  textFont?: string;
 }
 
 const ButtonComponent = (props: Props) => {
@@ -33,30 +34,42 @@ const ButtonComponent = (props: Props) => {
     textStyles,
     onPress,
     iconFlex,
+    textFont,
   } = props;
   return type === 'primary' ? (
-    <TouchableOpacity
-      onPress={onPress}
-      style={[
-        globalStyles.button,
-        {backgroundColor: color ?? appColors.primary},
-        styles,
-      ]}>
-      {icon && icon}
-      <TextComponent
-        text={text}
-        color={textColor ?? appColors.white}
-        styles={[
-          textStyles,
-          {marginLeft: icon && iconFlex === 'left' ? 12 : 0, fontSize: 16},
-        ]}
-        flex={icon && iconFlex === 'right' ? 1 : 0}
-        font={fontFamilies.medium}
-      />
-      {icon && iconFlex === 'right' && icon}
-    </TouchableOpacity>
+    <View style={{alignItems: 'center'}}>
+      <TouchableOpacity
+        onPress={onPress}
+        style={[
+          globalStyles.button,
+          globalStyles.shadow,
+          {
+            backgroundColor: color ?? appColors.primary,
+            marginBottom: 17,
+            width: '90%',
+          },
+          styles,
+        ]}>
+        {icon && iconFlex === 'left' && icon}
+        <TextComponent
+          text={text}
+          color={textColor ?? appColors.white}
+          styles={[
+            textStyles,
+            {
+              marginLeft: icon && iconFlex === 'left' ? 12 : 0,
+              fontSize: 16,
+              textAlign: 'center',
+            },
+          ]}
+          flex={icon && iconFlex === 'right' ? 1 : 0}
+          font={textFont ?? fontFamilies.medium}
+        />
+        {icon && iconFlex === 'right' && icon}
+      </TouchableOpacity>
+    </View>
   ) : (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={onPress}>
       <TextComponent
         text={text}
         color={
